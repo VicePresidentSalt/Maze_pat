@@ -1,5 +1,4 @@
-#ifndef ORIENTATION_H
-#define ORIENTATION_H
+#pragma once
 
 enum Orientation
 {
@@ -8,5 +7,3 @@ enum Orientation
 
 Orientation PivoterGauche(const Orientation);
 Orientation PivoterDroite(const Orientation);
-
-#endif
