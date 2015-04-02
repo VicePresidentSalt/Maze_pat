@@ -7,7 +7,7 @@ class Perso
 	Orientation direction_;
 	Position position_;
 
-	void setDir(Orientation o) throw()
+	void SetDir(Orientation o) throw()
 	{
 		direction_ = o ;
 	}
@@ -31,6 +31,11 @@ public:
 
 	void Gauche() throw()
 	{
-		setDir(PivoterGauche(GetDir());
+		SetDir(PivoterGauche(GetDir()));
 	}
+	void Droite() throw()
+	{
+		SetDir(PivoterDroite(GetDir()));
+	}
+	void Avancer() throw();
 };
