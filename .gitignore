@@ -42,7 +42,19 @@ Network Trash Folder
 Temporary Items
 .apdisk
 Maze.opensdf
+<<<<<<< HEAD
 *.sdf
 Maze.sdf
 *.suo
 Maze.sdf
+=======
+Maze.sdf
+Maze.sdf
+Maze.suo
+Maze/Maze.vcxproj.user
+ipch/maze-776a92c1/maze-89c3acd9.ipch
+Maze.sdf
+Maze.sdf
+Maze/Maze.vcxproj
+Maze/Maze.vcxproj.filters
+>>>>>>> 7763da6b85fcbba5eed4fb7e5bcd63fbf24f99f3
