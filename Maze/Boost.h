@@ -1,4 +1,5 @@
 #pragma once
+#include <iosfwd>
 #include "Position.h"
 
 class Boost
@@ -22,3 +23,4 @@ public:
 	}
 
 };
+ostream operator <<(ostream&, const Boost&);

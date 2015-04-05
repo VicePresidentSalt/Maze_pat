@@ -1,22 +1,20 @@
 #include "Perso.h"
-
-void Perso::Avancer() throw()
+#include <iostream>
+using std::ostream;
+ostream & operator << (ostream &os, const Perso &p)
 {
-	Position pos = GetPosition();
-
-	switch ( GetDir() )
+	switch (p.GetDir())
 	{
-		case Est:
-			position_ = Position( pos.GetX()+1,pos.GetY() );
-			break;
-		case Nord:
-			position_ = Position( pos.GetX(),pos.GetY()-1 );
-			break;
-		case Ouest:
-			position_ = Position( pos.GetX()-1,pos.GetY() );
-			break;
-		case Sud:
-			position_ = Position( pos.GetX(),pos.GetY()+1 );
-			break;
+	case Est:
+		os << '>'; break;
+	case Nord:
+		os << 'A'; break;
+	case Ouest:
+		os << '<'; break;
+	case Sud:
+		os << 'V'; break;
+	default:
+		os << '?'; break;
 	}
+	return os;
 }

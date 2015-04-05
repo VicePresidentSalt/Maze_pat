@@ -35,4 +35,22 @@ public:
 	{
 		return !(*this == p);
 	}
+
+	Position VoisineEst() const throw()
+	{
+		return Position(GetX() + 1, GetY());
+	}
+	Position VoisineNord() const throw()
+	{
+		return Position(GetX(), GetY()-1);
+	}
+	Position VoisineOuest() const throw()
+	{
+		return Position(GetX() - 1, GetY());
+	}
+	Position VoisineSud() const throw()
+	{
+		return Position(GetX(), GetY()+1);
+	}
+
 };

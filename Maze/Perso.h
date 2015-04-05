@@ -1,6 +1,8 @@
 #pragma once
+#include <iosfwd>
 #include "Position.h"
 #include "Orientation.h"
+using std::ostream;
 
 class Perso
 {
@@ -37,5 +39,25 @@ public:
 	{
 		SetDir(PivoterDroite(GetDir()));
 	}
-	void Avancer() throw();
+	Position Destination() const throw()
+	{
+		Position pos = GetPosition();
+		switch (GetDir())
+		{
+		case Est:
+			pos = pos.VoisineEst(); break;
+		case Nord:
+			pos = pos.VoisineNord(); break;
+		case Ouest:
+			pos = pos.VoisineOuest(); break;
+		case Sud:
+			pos = pos.VoisineSud(); break;
+		}
+		return pos;
+	};
+	void Avancer() throw()
+	{
+		position_ = Destination();
+	}
 };
+ostream & operator<<(ostream&, const Perso&)
