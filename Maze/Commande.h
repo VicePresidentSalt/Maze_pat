@@ -5,8 +5,6 @@ using std::toupper;
 using std::locale;
 using std::istream;
 using std::ostream;
-ostream & operator<<(ostream &, const Commande &);
-istream & operator>>(istream&, Commande &);
 
 class Commande
 {
@@ -24,5 +22,7 @@ public:
 	bool operator!=(const Commande &c) const 
 		{ return !(*this==c); }
 };
+ostream & operator<<(ostream &, const Commande &);
+istream & operator>>(istream&, Commande &);
 
 

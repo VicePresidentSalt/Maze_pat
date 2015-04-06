@@ -22,4 +22,5 @@ public:
 		return position_;
 	}
 
-};ostream operator <<(ostream&, const Boost&);
+};
+ostream operator << (ostream&, const Boost&);

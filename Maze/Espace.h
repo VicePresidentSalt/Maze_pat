@@ -10,7 +10,7 @@ public:
 
 	static bool EstValide(const Position &p) throw()
 	{
-		return X_MIN <= p.GetX && p.GetX < X_MAX &&
-			   Y_MIN <= p.GetY && p.GetY < Y_MAX;
+		return X_MIN <= p.GetX() && p.GetX() < X_MAX &&
+			   Y_MIN <= p.GetY() && p.GetY() < Y_MAX;
 	}
 };

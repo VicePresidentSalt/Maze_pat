@@ -60,4 +60,4 @@ public:
 		position_ = Destination();
 	}
 };
-ostream & operator<<(ostream&, const Perso&)
+ostream & operator<<(ostream&, const Perso&);
