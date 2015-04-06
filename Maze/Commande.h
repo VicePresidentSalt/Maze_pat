@@ -1,12 +1,18 @@
 #pragma once
+#include <iosfwd>
 #include <locale>
 using std::toupper;
 using std::locale;
+using std::istream;
+using std::ostream;
+ostream & operator<<(ostream &, const Commande &);
+istream & operator>>(istream&, Commande &);
+
 class Commande
 {
 	char symbole_;
 public:
-	Commande (char symbole) throw() : symbole_(symbole)
+	Commande (char symbole = ' ') throw() : symbole_(symbole)
 	{
 	}
 	char GetSymbole() const throw() { return symbole_; }
@@ -19,8 +25,4 @@ public:
 		{ return !(*this==c); }
 };
 
-#include <iosfwd>
-using std::istream;
-using std::ostream;
-ostream & operator<<(ostream &, const Commande &);
-istream & operator>>(istream&, Commande &);
+

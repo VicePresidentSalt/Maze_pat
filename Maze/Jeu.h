@@ -2,8 +2,6 @@
 #include "Boost.h"
 #include "Perso.h"
 
-class Commande;
-
 class Jeu
 {
 	Perso perso_;
