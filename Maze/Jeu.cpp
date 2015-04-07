@@ -16,6 +16,7 @@ bool Jeu::Fini() const throw()
 void Jeu::AfficherEtat() const
 {
 	system("cls");
+	Menu::Afficher();
 
 	for (int i = Espace::Y_MIN; i < Espace::Y_MAX; ++i)
 	{

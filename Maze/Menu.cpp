@@ -19,7 +19,7 @@ void Menu::Afficher()
 
 Commande Menu::LireCommande()
 {
-	Commande c = QUITTER;
+	Commande c ;
 	cin >> c;
 	return c;
 }

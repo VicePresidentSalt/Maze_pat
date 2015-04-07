@@ -6,11 +6,11 @@ int main()
 {
 	Jeu jeu;
 	jeu.AfficherEtat();
-	Menu::Afficher();
 	Commande c;
 
-	while (!jeu.Fini() && (c = Menu::LireCommande(),c != Menu::QUITTER))
+	while (!jeu.Fini() && c != Menu::QUITTER)
 	{
+		c = Menu::LireCommande();
 		jeu.Executer(c);
 		jeu.AfficherEtat();
 	}
