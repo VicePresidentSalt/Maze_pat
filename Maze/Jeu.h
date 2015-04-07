@@ -20,4 +20,5 @@ public :
 	bool Fini() const throw();
 	void AfficherEtat() const;
 	void Executer(const Commande&);
+	Perso GetPersonnage();
 };

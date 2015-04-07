@@ -8,6 +8,7 @@ class Perso
 {
 	Orientation direction_;
 	Position position_;
+	int nbPas_;
 
 	void SetDir(Orientation o) throw()
 	{
@@ -16,9 +17,8 @@ class Perso
 
 public:
 	Perso(const Position &p = Position(), const Orientation o = Nord) throw()
-		: position_(p), direction_(o)
+		: position_(p), direction_(o), nbPas_(10)
 	{
-		
 	}
 
 	Orientation GetDir() const throw()
@@ -29,6 +29,14 @@ public:
 	Position GetPosition() const
 	{
 		return position_;
+	}
+	int GetNbPas() const
+	{
+		return nbPas_;
+	}
+	void ReduirePas()
+	{
+		nbPas_--;
 	}
 
 	void Gauche() throw()

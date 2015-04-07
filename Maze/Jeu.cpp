@@ -16,7 +16,6 @@ bool Jeu::Fini() const throw()
 void Jeu::AfficherEtat() const
 {
 	system("cls");
-	Menu::Afficher();
 
 	for (int i = Espace::Y_MIN; i < Espace::Y_MAX; ++i)
 	{
@@ -39,13 +38,20 @@ void Jeu::AfficherEtat() const
 			}
 		}
 	}
+
+	Menu::Afficher();
+	cout << "Nombre De Pas: " << perso_.GetNbPas() << endl;
 }
 void Jeu::Executer(const Commande &c)
 {
 	if (c == Menu::AVANCER)
 	{
 		if (Espace::EstValide(perso_.Destination()))
+		{
 			perso_.Avancer();
+			perso_.ReduirePas();
+		}
+
 	}
 	else if (c == Menu::DROITE)
 		perso_.Droite();
@@ -53,6 +59,12 @@ void Jeu::Executer(const Commande &c)
 		perso_.Gauche();
 	
 }
+
+Perso Jeu::GetPersonnage()
+{
+	return perso_;
+}
+
 
 
 

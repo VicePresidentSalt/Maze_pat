@@ -8,7 +8,7 @@ int main()
 	jeu.AfficherEtat();
 	Commande c;
 
-	while (!jeu.Fini() && c != Menu::QUITTER)
+	while (!jeu.Fini() && c != Menu::QUITTER && jeu.GetPersonnage().GetNbPas() != 0)
 	{
 		c = Menu::LireCommande();
 		jeu.Executer(c);
