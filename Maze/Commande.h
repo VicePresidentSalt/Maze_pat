@@ -1,10 +1,7 @@
 #pragma once
-#include <iosfwd>
+#include <iostream>
 #include <locale>
-using std::toupper;
-using std::locale;
-using std::istream;
-using std::ostream;
+using namespace std;
 
 class Commande
 {

@@ -52,3 +52,5 @@ Maze.sdf
 Maze/Maze.vcxproj
 Maze/Maze.vcxproj.filters
 *.sdf
+Debug/Maze.ilk
+Maze.sdf

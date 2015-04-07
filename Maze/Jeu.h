@@ -1,6 +1,7 @@
 #pragma once
 #include "Boost.h"
 #include "Perso.h"
+#include "Commande.h"
 
 class Jeu
 {
@@ -18,5 +19,5 @@ public :
 	}
 	bool Fini() const throw();
 	void AfficherEtat() const;
-	void Executer(const Commande &);
+	void Executer(const Commande&);
 };

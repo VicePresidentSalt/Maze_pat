@@ -1,6 +1,7 @@
 #pragma once
-#include <iosfwd>
+#include <iostream>
 #include "Position.h"
+using namespace std;
 
 class Boost
 {
@@ -13,6 +14,7 @@ public:
 	}
 
 	Boost(const Position &p) throw()
+		: position_(p)
 	{
 	
 	}
@@ -23,4 +25,4 @@ public:
 	}
 
 };
-ostream operator << (ostream&, const Boost&);
+ostream & operator<<(ostream&, const Boost&);

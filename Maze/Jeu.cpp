@@ -1,5 +1,4 @@
 #include "Jeu.h"
-#include "Commande.h"
 #include "Menu.h"
 #include "Espace.h"
 #include <iostream>
@@ -11,7 +10,7 @@ const Position
 
 bool Jeu::Fini() const throw()
 {
-	return perso_.GetPosition() == boost_.GetPosition(); // à changer pour la position finale du maze
+	return perso_.GetPosition() == boost_.GetPosition(); // ?changer pour la position finale du maze
 }
 
 void Jeu::AfficherEtat() const
@@ -28,8 +27,7 @@ void Jeu::AfficherEtat() const
 			{
 				cout << perso_; // dessine le perso
 			}
-
-			else if (pos == boost_.GetPosition)
+			else if (pos == boost_.GetPosition())
 			{
 				cout << boost_; // dessine le boost
 			}

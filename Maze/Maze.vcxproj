@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -76,7 +76,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Boost.cpp" />
+    <ClCompile Include="Commande.cpp" />
+    <ClCompile Include="Jeu.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Orientation.cpp" />
+    <ClCompile Include="Perso.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Boost.h" />
+    <ClInclude Include="Commande.h" />
+    <ClInclude Include="Espace.h" />
+    <ClInclude Include="Jeu.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="Orientation.h" />
+    <ClInclude Include="Perso.h" />
+    <ClInclude Include="Position.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

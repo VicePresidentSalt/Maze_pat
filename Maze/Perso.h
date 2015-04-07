@@ -1,8 +1,8 @@
 #pragma once
-#include <iosfwd>
+#include <iostream>
 #include "Position.h"
 #include "Orientation.h"
-using std::ostream;
+using namespace std;
 
 class Perso
 {
