@@ -38,6 +38,11 @@ public:
 	{
 		nbPas_--;
 	}
+	
+	void AjoutNbPas(int ajoutPas)
+	{
+		nbPas_ += ajoutPas;
+	}
 
 	void Gauche() throw()
 	{

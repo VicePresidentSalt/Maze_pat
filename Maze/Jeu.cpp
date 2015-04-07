@@ -6,14 +6,15 @@ using namespace std;
 
 const Position
 	Jeu::LIEU_BOOST_DEFAUT = Position(1, 1),
-	Jeu::LIEU_PERSO_DEFAUT = Position(5, 5);
+	Jeu::LIEU_PERSO_DEFAUT = Position(5, 5),
+	Jeu::LIEU_FIN = Position(6,6);
 
 bool Jeu::Fini() const throw()
 {
-	return perso_.GetPosition() == boost_.GetPosition(); // ?changer pour la position finale du maze
+	return perso_.GetPosition() == LIEU_FIN ; // ?changer pour la position finale du maze
 }
 
-void Jeu::AfficherEtat() const
+void Jeu::AfficherEtat()
 {
 	system("cls");
 
@@ -27,7 +28,7 @@ void Jeu::AfficherEtat() const
 			{
 				cout << perso_; // dessine le perso
 			}
-			else if (pos == boost_.GetPosition())
+			else if (pos == boost_.GetPosition() && !boost_.estManger())
 			{
 				cout << boost_; // dessine le boost
 			}
@@ -50,6 +51,11 @@ void Jeu::Executer(const Commande &c)
 		{
 			perso_.Avancer();
 			perso_.ReduirePas();
+		}
+		if(perso_.GetPosition() == boost_.GetPosition() && !boost_.estManger())
+		{
+			perso_.AjoutNbPas(boost_.GetAjoutPas());
+			boost_.Mange();
 		}
 
 	}

@@ -8,7 +8,6 @@ ostream & operator<< (ostream &os, const Commande &c)
 
 istream & operator>> (istream &is, Commande &c)
 {
-	//if (is) return is;
 	char ch;
 	if (is >> ch)
 		c= Commande(ch);

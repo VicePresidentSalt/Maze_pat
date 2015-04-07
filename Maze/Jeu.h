@@ -8,7 +8,7 @@ class Jeu
 	Perso perso_;
 	Boost boost_;
 
-	static const Position LIEU_BOOST_DEFAUT, LIEU_PERSO_DEFAUT;
+	static const Position LIEU_BOOST_DEFAUT, LIEU_PERSO_DEFAUT, LIEU_FIN;
 
 public :
 	Jeu() throw()
@@ -18,7 +18,7 @@ public :
 		
 	}
 	bool Fini() const throw();
-	void AfficherEtat() const;
+	void AfficherEtat();
 	void Executer(const Commande&);
 	Perso GetPersonnage();
 };
