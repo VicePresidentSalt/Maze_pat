@@ -36,7 +36,9 @@ public:
 	static bool EstValide(const Position &p) throw()
 	{
 		char** maze = initMaze();
-		return maze[p.GetX()][p.GetY()] == '#' && X_MIN <= p.GetX() && p.GetX() < X_MAX &&
+		if (maze[p.GetX()][p.GetY()] == '#')
+			return false;
+		return X_MIN <= p.GetX() && p.GetX() < X_MAX &&
 			   Y_MIN <= p.GetY() && p.GetY() < Y_MAX;
 	}
 };
