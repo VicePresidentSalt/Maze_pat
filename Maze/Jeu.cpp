@@ -17,6 +17,7 @@ bool Jeu::Fini() const throw()
 void Jeu::AfficherEtat()
 {
 	system("cls");
+	int** maze = Espace::initMaze();
 
 	for (int i = Espace::Y_MIN; i < Espace::Y_MAX; ++i)
 	{
@@ -24,18 +25,32 @@ void Jeu::AfficherEtat()
 		{
 			const Position pos(j, i);
 
-			if (pos == perso_.GetPosition())
+			if(maze[j][i] == '#')
 			{
-				cout << perso_; // dessine le perso
+				cout << '#';
+			}
+			else if (pos == perso_.GetPosition())
+			{
+				if (pos.GetX() == Espace::X_MAX-1)
+					cout << perso_ << endl;
+				else
+					cout << perso_; // dessine le perso
+				
 			}
 			else if (pos == boost_.GetPosition() && !boost_.estManger())
 			{
-				cout << boost_; // dessine le boost
+				if (pos.GetX() == Espace::X_MAX-1)
+					cout << boost_ << endl;
+				else
+					cout << boost_; // dessine le boost
 			}
 			// rajouter le shit pour la torche
 			else
 			{
-				cout << ' '; // rien
+				if (pos.GetX() == Espace::X_MAX-1)
+					cout << ' ' << endl;
+				else
+					cout << ' '; // rien
 			}
 		}
 	}

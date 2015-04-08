@@ -17,7 +17,7 @@ class Perso
 
 public:
 	Perso(const Position &p = Position(), const Orientation o = Nord) throw()
-		: position_(p), direction_(o), nbPas_(10)
+		: position_(p), direction_(o), nbPas_(2000)
 	{
 	}
 

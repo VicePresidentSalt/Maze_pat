@@ -54,3 +54,12 @@ Maze/Maze.vcxproj.filters
 *.sdf
 Debug/Maze.ilk
 Maze.sdf
+Maze/Debug/Orientation.obj
+Maze/Debug/Maze.obj
+Maze/Debug/Maze.lastbuildstate
+Maze/Debug/main.obj
+Maze/Debug/link.read.1.tlog
+*.pdb
+*.tlog
+*.obj
+Debug/Maze.exe

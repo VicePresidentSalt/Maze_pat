@@ -6,7 +6,7 @@ using namespace std;
 class Boost
 {
 	const Position position_;
-	const int ajoutPas_ = 5;
+	static const int ajoutPas_ = 5;
 	bool manger_;
 
 public:
