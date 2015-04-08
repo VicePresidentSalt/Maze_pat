@@ -1,21 +1,14 @@
-#pragma once
 #include<stdio.h>
-#include<iostream>
-#include<cstdlib>
-#include<ctime>
-#define FALSE 0
-#define TRUE 1
-using namespace std;
-const int SIZE = 12;
-class Maze 
-{
-private:
-	char  M[SIZE][SIZE]; // array of random numbers
-	int size; // size of the array
+#include<conio.h>
+#include<stdlib.h>
+#include<time.h>
 
-public:
-	Maze();  // constructor
-	void read_maze();
-	int maze_traverse(int row, int col);
-	void display_maze();
-};
+#define MAX 61  // 30 * 2 + 1
+#define CELL 900  // 30 * 30
+#define WALL 1
+#define PATH 0
+
+void init_maze(int maze[MAX][MAX]);
+void maze_generator(int indeks, int maze[MAX][MAX], int backtrack_x[CELL], int bactrack_y[CELL], int x, int y, int n, int visited);
+void print_maze(int maze[MAX][MAX], int maze_size);
+int is_closed(int maze[MAX][MAX], int x, int y);
