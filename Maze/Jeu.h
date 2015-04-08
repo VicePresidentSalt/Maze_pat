@@ -7,13 +7,16 @@ class Jeu
 {
 	Perso perso_;
 	Boost boost_;
+	Position torche_;
 
-	static const Position LIEU_BOOST_DEFAUT, LIEU_PERSO_DEFAUT, LIEU_FIN;
+	static const Position LIEU_BOOST_DEFAUT, LIEU_PERSO_DEFAUT, LIEU_FIN ,LIEU_TORCHE_DEFAUT;
 
 public :
 	Jeu() throw()
 		: perso_(LIEU_PERSO_DEFAUT),
-		boost_(LIEU_BOOST_DEFAUT)
+	      boost_(LIEU_BOOST_DEFAUT),
+		  torche_(LIEU_TORCHE_DEFAUT)
+
 	{
 		
 	}
