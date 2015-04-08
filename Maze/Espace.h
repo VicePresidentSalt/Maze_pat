@@ -6,24 +6,23 @@ class Espace
 {
 public:
 
-	static int** initMaze()
+	static char** initMaze()
 	{
-		int** maze = new int*[10];
-		for (int i = 0; i < 10; ++i)
+		char** maze = new char*[50];
+		for (int i = 0; i < 50; ++i)
 		{
-		   maze[i] = new int[10];
+		   maze[i] = new char[50];
 		}
 		// Read maze.txt header
 		ifstream din;
 		din.open("mazetest.txt");
 		string line;
-		getline(din, line);
-		for (int r = 0; r < 10; r++)
+		for (int r = 0; r < 50 ; r++)
 		{
 			getline(din, line);
-			for (int c = 0; c < 10; c++)
+			for (int c = 0; c < 50; c++)
 			if (c < int(line.length()))
-			maze[r][c] = line[c];
+			maze[c][r] = line[c];
 		}
 		din.close();
 		return maze;
@@ -31,12 +30,13 @@ public:
 	enum
 	{
 		X_MIN = 0, Y_MIN= 0,
-		X_MAX = 10 ,Y_MAX = 10
+		X_MAX = 12 ,Y_MAX = 12
 	};
 
 	static bool EstValide(const Position &p) throw()
 	{
-		return X_MIN <= p.GetX() && p.GetX() < X_MAX &&
+		char** maze = initMaze();
+		return maze[p.GetX()][p.GetY()] == '#' && X_MIN <= p.GetX() && p.GetX() < X_MAX &&
 			   Y_MIN <= p.GetY() && p.GetY() < Y_MAX;
 	}
 };

@@ -5,8 +5,8 @@
 using namespace std;
 
 const Position
-	Jeu::LIEU_BOOST_DEFAUT = Position(1, 1),
-	Jeu::LIEU_PERSO_DEFAUT = Position(5, 5),
+	Jeu::LIEU_BOOST_DEFAUT = Position(3, 3),
+	Jeu::LIEU_PERSO_DEFAUT = Position(1, 1),
 	Jeu::LIEU_FIN = Position(6,6);
 
 bool Jeu::Fini() const throw()
@@ -17,7 +17,7 @@ bool Jeu::Fini() const throw()
 void Jeu::AfficherEtat()
 {
 	system("cls");
-	int** maze = Espace::initMaze();
+	char** maze = Espace::initMaze();
 
 	for (int i = Espace::Y_MIN; i < Espace::Y_MAX; ++i)
 	{
