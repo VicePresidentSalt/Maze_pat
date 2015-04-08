@@ -12,7 +12,7 @@ class Torche
 
 public:
 	Torche()
-	{
+	{ 
 
 	}
 

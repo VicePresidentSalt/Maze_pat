@@ -8,7 +8,8 @@ using namespace std;
 const Position
 	Jeu::LIEU_BOOST_DEFAUT = Position(3, 3),
 	Jeu::LIEU_PERSO_DEFAUT = Position(1, 1),
-	Jeu::LIEU_FIN = Position(6,6);
+	Jeu::LIEU_FIN = Position(6,6),
+	Jeu::LIEU_TORCHE_DEFAUT = Position(3, 2);
 
 bool Jeu::Fini() const throw()
 {
@@ -80,6 +81,10 @@ void Jeu::Executer(const Commande &c)
 			perso_.AjoutNbPas(boost_.GetAjoutPas());
 			boost_.Mange();
 		}
+		if (perso_.GetPosition() == torche_.GetPosition() && !torche_.torchePrise())
+		{
+			torche_.PrendreTorche();
+		}
 
 	}
 	else if (c == Menu::DROITE)
@@ -93,7 +98,3 @@ Perso Jeu::GetPersonnage()
 {
 	return perso_;
 }
-
-
-
-
