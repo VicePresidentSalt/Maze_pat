@@ -1,6 +1,7 @@
 #include "Jeu.h"
 #include "Menu.h"
 #include "Espace.h"
+#include "Torche.h"
 #include <iostream>
 using namespace std;
 
@@ -35,7 +36,6 @@ void Jeu::AfficherEtat()
 					cout << perso_ << endl;
 				else
 					cout << perso_; // dessine le perso
-				
 			}
 			else if (pos == boost_.GetPosition() && !boost_.estManger())
 			{
@@ -44,7 +44,15 @@ void Jeu::AfficherEtat()
 				else
 					cout << boost_; // dessine le boost
 			}
-			// rajouter le shit pour la torche
+			
+			else if (pos == torche_.GetPosition() && !torche_.torchePrise())
+			{
+				if (pos.GetX() == Espace::X_MAX - 1)
+					cout << torche_ << endl;
+				else
+					cout << torche_; // dessine la torche
+			}
+
 			else
 			{
 				if (pos.GetX() == Espace::X_MAX-1)
