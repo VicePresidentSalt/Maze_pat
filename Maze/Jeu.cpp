@@ -6,14 +6,17 @@
 using namespace std;
 
 	char** maze = Espace::initMaze();
+	/*
 	const Position Jeu::LIEU_BOOST_DEFAUT = Position(3, 3);
 	const Position Jeu::LIEU_PERSO_DEFAUT = Position(1, 1);
 	const Position Jeu::LIEU_FIN = Position(16,1);
 	const Position Jeu::LIEU_TORCHE_DEFAUT = Position(3, 2);
+	*/
+	const Position LIEU_FIN;
 
 bool Jeu::Fini() const throw()
 {
-	return perso_.GetPosition() == LIEU_FIN ; // ?changer pour la position finale du maze
+	return perso_.GetPosition() == positionFin ; // ?changer pour la position finale du maze
 }
 
 void Jeu::AfficherEtat()
@@ -30,10 +33,26 @@ void Jeu::AfficherEtat()
 			{
 				cout << '#'; // dessine les murs
 			}
+			else if (maze[j][i] == 'B' && perso_.champVision(pos))
+			{
+				cout << boost_; // dessine boost
+				positionBoost.push_back(make_pair(j, i));
+			}
+			else if (maze[j][i] == 'T' && perso_.champVision(pos))
+			{
+				cout << torche_; // dessine torche
+				positionTorche.push_back(make_pair(j, i));
+			}
+			else if (maze[j][i] == 'E' && perso_.champVision(pos))
+			{
+				LIEU_FIN = positionFin.push_back(make_pair(j, i));
+				cout << 'E'; // dessine exit
+			}
 			else if (pos == perso_.GetPosition())
 			{
 				cout << perso_; // dessine le perso
 			}
+			/*
 			else if (pos == boost_.GetPosition() && !boost_.estManger() && perso_.champVision(pos) )
 			{
 				cout << boost_; // dessine le boost
@@ -43,6 +62,7 @@ void Jeu::AfficherEtat()
 			{
 				cout << torche_; // dessine la torche
 			}
+			*/
 			else
 			{
 				cout << ' '; // rien
@@ -67,11 +87,15 @@ void Jeu::Executer(const Commande &c)
 				perso_.ReduirePasTorche();
 			}
 		}
-		if(perso_.GetPosition() == boost_.GetPosition() && !boost_.estManger())
+		for ( int i = 0; i < positionBoost.size(); i++)
 		{
-			perso_.AjoutNbPas(boost_.GetAjoutPas());
-			boost_.Mange();
+			if (perso_.GetPosition() == positionBoost<j,i> && !boost_.estManger())
+			{
+				perso_.AjoutNbPas(boost_.GetAjoutPas());
+				boost_.Mange();
+			}
 		}
+		
 		if (perso_.GetPosition() == torche_.GetPosition() && !torche_.torchePrise())
 		{
 			perso_.AjoutNbPasTorche(torche_.GetAjoutPasTorche());
