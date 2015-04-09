@@ -40,6 +40,14 @@ public:
 	{
 		return Position(GetX() + 1, GetY());
 	}
+	Position VoisineNordEst() const throw()
+	{
+		return Position(GetX() + 1, GetY()-1);
+	}
+	Position VoisineNordOuest() const throw()
+	{
+		return Position(GetX() - 1, GetY()-1);
+	}
 	Position VoisineNord() const throw()
 	{
 		return Position(GetX(), GetY()-1);
@@ -51,6 +59,14 @@ public:
 	Position VoisineSud() const throw()
 	{
 		return Position(GetX(), GetY()+1);
+	}
+	Position VoisineSudOuest() const throw()
+	{
+		return Position(GetX()-1, GetY() + 1);
+	}
+	Position VoisineSudEst() const throw()
+	{
+		return Position(GetX()+1, GetY() + 1);
 	}
 
 };
