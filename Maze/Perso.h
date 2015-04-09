@@ -9,6 +9,7 @@ class Perso
 	Orientation direction_;
 	Position position_;
 	int nbPas_;
+	int nbPasTorche_;
 
 	void SetDir(Orientation o) throw()
 	{
@@ -17,7 +18,7 @@ class Perso
 
 public:
 	Perso(const Position &p = Position(), const Orientation o = Nord) throw()
-		: position_(p), direction_(o), nbPas_(2000)
+		: position_(p), direction_(o), nbPas_(2000) , nbPasTorche_(0)
 	{
 	}
 
@@ -34,6 +35,7 @@ public:
 	{
 		return nbPas_;
 	}
+
 	void ReduirePas()
 	{
 		nbPas_--;
@@ -42,6 +44,20 @@ public:
 	void AjoutNbPas(int ajoutPas)
 	{
 		nbPas_ += ajoutPas;
+	}
+
+	int GetNbPasTorche() const
+	{
+		return nbPasTorche_;
+	}
+	void ReduirePasTorche()
+	{
+		nbPasTorche_--;
+	}
+
+	void AjoutNbPasTorche(int ajoutPasTorche)
+	{
+		nbPasTorche_ += ajoutPasTorche;
 	}
 
 	void Gauche() throw()

@@ -53,6 +53,7 @@ void Jeu::AfficherEtat()
 				else
 					cout << torche_; // dessine la torche
 			}
+			
 
 			else
 			{
@@ -66,6 +67,7 @@ void Jeu::AfficherEtat()
 
 	Menu::Afficher();
 	cout << "Nombre De Pas: " << perso_.GetNbPas() << endl;
+	cout << "Nombre De Pas Avec Torche :" << perso_.GetNbPasTorche() << endl;
 }
 void Jeu::Executer(const Commande &c)
 {
@@ -75,6 +77,10 @@ void Jeu::Executer(const Commande &c)
 		{
 			perso_.Avancer();
 			perso_.ReduirePas();
+			if (torche_.torchePrise() && perso_.GetNbPasTorche() > 0)
+			{
+				perso_.ReduirePasTorche();
+			}
 		}
 		if(perso_.GetPosition() == boost_.GetPosition() && !boost_.estManger())
 		{
@@ -83,6 +89,7 @@ void Jeu::Executer(const Commande &c)
 		}
 		if (perso_.GetPosition() == torche_.GetPosition() && !torche_.torchePrise())
 		{
+			perso_.AjoutNbPasTorche(torche_.GetAjoutPasTorche());
 			torche_.PrendreTorche();
 		}
 
