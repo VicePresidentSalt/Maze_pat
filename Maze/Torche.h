@@ -6,7 +6,7 @@ using namespace std;
 class Torche
 {
 	const Position position_;
-	static const int ajoutPasTorche_ = 5;
+	static const int ajoutPasTorche_ = 10;
 	bool torchePrise_;
 
 

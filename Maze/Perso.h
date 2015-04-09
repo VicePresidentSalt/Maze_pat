@@ -29,8 +29,12 @@ public:
 
 	bool champVision(Position pos)
 	{
-		return pos == position_.VoisineEst() || pos == position_.VoisineNord() || pos == position_.VoisineNordEst() || pos == position_.VoisineSudEst()
+		if(nbPasTorche_ > 0 )
+			return pos == position_.VoisineEst() || pos == position_.VoisineNord() || pos == position_.VoisineNordEst() || pos == position_.VoisineSudEst()
 				|| pos == position_.VoisineSud() || pos == position_.VoisineOuest() || pos == position_.VoisineNordOuest() || pos == position_.VoisineSudOuest();
+		else
+			return pos == position_.VoisineEst() || pos == position_.VoisineNord()
+				|| pos == position_.VoisineSud() || pos == position_.VoisineOuest();
 	}
 	Position GetPosition() const
 	{

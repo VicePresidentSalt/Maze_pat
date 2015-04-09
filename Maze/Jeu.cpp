@@ -52,7 +52,7 @@ void Jeu::AfficherEtat()
 
 	Menu::Afficher();
 	cout << "Nombre De Pas: " << perso_.GetNbPas() << endl;
-	cout << "Nombre De Pas Avec Torche :" << perso_.GetNbPasTorche() << endl;
+	cout << "Nombre De Pas Avec Torche : " << perso_.GetNbPasTorche() << endl;
 }
 void Jeu::Executer(const Commande &c)
 {
