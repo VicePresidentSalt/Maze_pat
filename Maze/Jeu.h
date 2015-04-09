@@ -3,13 +3,12 @@
 #include "Boost.h"
 #include "Perso.h"
 #include "Commande.h"
-#include "Torche.h"
 
 class Jeu
 {
 	Perso perso_;
 	Boost boost_;
-	Torche torche_; 
+	Torche torche_;
 
 	static const Position LIEU_BOOST_DEFAUT, LIEU_PERSO_DEFAUT, LIEU_FIN ,LIEU_TORCHE_DEFAUT;
 

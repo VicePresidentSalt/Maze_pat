@@ -5,7 +5,6 @@ using namespace std;
 class Espace
 {
 public:
-
 	static char** initMaze()
 	{
 		char** maze = new char*[100];
@@ -33,9 +32,8 @@ public:
 		X_MAX = 80 ,Y_MAX = 20
 	};
 
-	static bool EstValide(const Position &p) throw()
+	static bool EstValide(const Position &p, char** maze) throw()
 	{
-		char** maze = initMaze();
 		if (maze[p.GetX()][p.GetY()] == '#')
 			return false;
 		return X_MIN <= p.GetX() && p.GetX() < X_MAX &&
