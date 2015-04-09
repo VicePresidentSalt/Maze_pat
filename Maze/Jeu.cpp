@@ -5,7 +5,6 @@
 #include <iostream>
 using namespace std;
 
-
 	char** maze = Espace::initMaze();
 	const Position Jeu::LIEU_BOOST_DEFAUT = Position(3, 3);
 	const Position Jeu::LIEU_PERSO_DEFAUT = Position(1, 1);
