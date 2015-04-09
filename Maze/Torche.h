@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include <iostream>
 #include "Position.h"
 using namespace std;
@@ -7,12 +6,13 @@ using namespace std;
 class Torche
 {
 	const Position position_;
-	static const int ajoutPas_ = 5;
+	static const int ajoutPasTorche_ = 5;
 	bool torchePrise_;
+
 
 public:
 	Torche()
-	{
+	{ 
 
 	}
 
@@ -35,6 +35,11 @@ public:
 	void PrendreTorche()
 	{
 		torchePrise_ = true;
+	}
+
+	int GetAjoutPasTorche()
+	{
+		return ajoutPasTorche_;
 	}
 };
 ostream & operator<<(ostream&, const Torche&);

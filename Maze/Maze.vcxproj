@@ -80,19 +80,23 @@
     <ClCompile Include="Commande.cpp" />
     <ClCompile Include="Jeu.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Maze.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Orientation.cpp" />
     <ClCompile Include="Perso.cpp" />
+    <ClCompile Include="Torche.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boost.h" />
     <ClInclude Include="Commande.h" />
     <ClInclude Include="Espace.h" />
     <ClInclude Include="Jeu.h" />
+    <ClInclude Include="Maze.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Orientation.h" />
     <ClInclude Include="Perso.h" />
     <ClInclude Include="Position.h" />
+    <ClInclude Include="Torche.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

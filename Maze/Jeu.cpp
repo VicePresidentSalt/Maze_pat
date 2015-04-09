@@ -9,7 +9,7 @@ const Position
 	Jeu::LIEU_BOOST_DEFAUT = Position(3, 3),
 	Jeu::LIEU_PERSO_DEFAUT = Position(1, 1),
 	Jeu::LIEU_FIN = Position(6,6),
-	Jeu::LIEU_TORCHE_DEFAUT = Position(2,2);
+	Jeu::LIEU_TORCHE_DEFAUT = Position(3, 2);
 
 bool Jeu::Fini() const throw()
 {
@@ -47,6 +47,7 @@ void Jeu::AfficherEtat()
 				
 					cout << torche_; // dessine la torche
 			}
+			
 
 			else
 			{
@@ -57,6 +58,7 @@ void Jeu::AfficherEtat()
 
 	Menu::Afficher();
 	cout << "Nombre De Pas: " << perso_.GetNbPas() << endl;
+	cout << "Nombre De Pas Avec Torche :" << perso_.GetNbPasTorche() << endl;
 }
 void Jeu::Executer(const Commande &c)
 {
@@ -66,11 +68,20 @@ void Jeu::Executer(const Commande &c)
 		{
 			perso_.Avancer();
 			perso_.ReduirePas();
+			if (torche_.torchePrise() && perso_.GetNbPasTorche() > 0)
+			{
+				perso_.ReduirePasTorche();
+			}
 		}
 		if(perso_.GetPosition() == boost_.GetPosition() && !boost_.estManger())
 		{
 			perso_.AjoutNbPas(boost_.GetAjoutPas());
 			boost_.Mange();
+		}
+		if (perso_.GetPosition() == torche_.GetPosition() && !torche_.torchePrise())
+		{
+			perso_.AjoutNbPasTorche(torche_.GetAjoutPasTorche());
+			torche_.PrendreTorche();
 		}
 
 	}
@@ -85,7 +96,3 @@ Perso Jeu::GetPersonnage()
 {
 	return perso_;
 }
-
-
-
-
