@@ -26,8 +26,7 @@ void Jeu::AfficherEtat()
 		{
 			const Position pos(j, i);
 
-			if(maze[j][i] == '#' && (pos == perso_.GetPosition().VoisineEst() || pos == perso_.GetPosition().VoisineNord()
-				|| pos == perso_.GetPosition().VoisineSud() || pos == perso_.GetPosition().VoisineOuest() ) )
+			if(maze[j][i] == '#' && perso_.champVision(pos) )
 			{
 				cout << '#'; // dessine les murs
 			}
@@ -35,14 +34,12 @@ void Jeu::AfficherEtat()
 			{
 				cout << perso_; // dessine le perso
 			}
-			else if (pos == boost_.GetPosition() && !boost_.estManger() && (pos == perso_.GetPosition().VoisineEst() || pos == perso_.GetPosition().VoisineNord()
-				|| pos == perso_.GetPosition().VoisineSud() || pos == perso_.GetPosition().VoisineOuest() ) )
+			else if (pos == boost_.GetPosition() && !boost_.estManger() && perso_.champVision(pos) )
 			{
 				cout << boost_; // dessine le boost
 			}
 			
-			else if (pos == torche_.GetPosition() && !torche_.torchePrise() && (pos == perso_.GetPosition().VoisineEst() || pos == perso_.GetPosition().VoisineNord()
-				|| pos == perso_.GetPosition().VoisineSud() || pos == perso_.GetPosition().VoisineOuest() ) )
+			else if (pos == torche_.GetPosition() && !torche_.torchePrise() && perso_.champVision(pos) )
 			{
 				cout << torche_; // dessine la torche
 			}

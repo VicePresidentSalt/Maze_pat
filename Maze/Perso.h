@@ -27,6 +27,11 @@ public:
 		return direction_;
 	}
 
+	bool champVision(Position pos)
+	{
+		return pos == position_.VoisineEst() || pos == position_.VoisineNord() || pos == position_.VoisineNordEst() || pos == position_.VoisineSudEst()
+				|| pos == position_.VoisineSud() || pos == position_.VoisineOuest() || pos == position_.VoisineNordOuest() || pos == position_.VoisineSudOuest();
+	}
 	Position GetPosition() const
 	{
 		return position_;
