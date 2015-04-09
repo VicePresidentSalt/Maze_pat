@@ -9,8 +9,6 @@ int main()
 	jeu.AfficherEtat();
 	Commande c;
 
-	int maze[10][10];
-
 	while (!jeu.Fini() && c != Menu::QUITTER && jeu.GetPersonnage().GetNbPas() != 0)
 	{
 		c = Menu::LireCommande();

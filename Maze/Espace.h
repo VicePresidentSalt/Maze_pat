@@ -8,19 +8,19 @@ public:
 
 	static char** initMaze()
 	{
-		char** maze = new char*[50];
-		for (int i = 0; i < 50; ++i)
+		char** maze = new char*[100];
+		for (int i = 0; i < 100; ++i)
 		{
-		   maze[i] = new char[50];
+		   maze[i] = new char[100];
 		}
 		// Read maze.txt header
 		ifstream din;
-		din.open("mazetest.txt");
+		din.open("maze.txt");
 		string line;
-		for (int r = 0; r < 50 ; r++)
+		for (int r = 0; r < 100 ; r++)
 		{
 			getline(din, line);
-			for (int c = 0; c < 50; c++)
+			for (int c = 0; c < 100; c++)
 			if (c < int(line.length()))
 			maze[c][r] = line[c];
 		}
@@ -30,7 +30,7 @@ public:
 	enum
 	{
 		X_MIN = 0, Y_MIN= 0,
-		X_MAX = 12 ,Y_MAX = 12
+		X_MAX = 80 ,Y_MAX = 20
 	};
 
 	static bool EstValide(const Position &p) throw()

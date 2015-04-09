@@ -8,7 +8,8 @@ using namespace std;
 const Position
 	Jeu::LIEU_BOOST_DEFAUT = Position(3, 3),
 	Jeu::LIEU_PERSO_DEFAUT = Position(1, 1),
-	Jeu::LIEU_FIN = Position(6,6);
+	Jeu::LIEU_FIN = Position(6,6),
+	Jeu::LIEU_TORCHE_DEFAUT = Position(2,2);
 
 bool Jeu::Fini() const throw()
 {
@@ -32,32 +33,23 @@ void Jeu::AfficherEtat()
 			}
 			else if (pos == perso_.GetPosition())
 			{
-				if (pos.GetX() == Espace::X_MAX-1)
-					cout << perso_ << endl;
-				else
+				
 					cout << perso_; // dessine le perso
 			}
 			else if (pos == boost_.GetPosition() && !boost_.estManger())
 			{
-				if (pos.GetX() == Espace::X_MAX-1)
-					cout << boost_ << endl;
-				else
+				
 					cout << boost_; // dessine le boost
 			}
 			
 			else if (pos == torche_.GetPosition() && !torche_.torchePrise())
 			{
-				if (pos.GetX() == Espace::X_MAX - 1)
-					cout << torche_ << endl;
-				else
+				
 					cout << torche_; // dessine la torche
 			}
 
 			else
 			{
-				if (pos.GetX() == Espace::X_MAX-1)
-					cout << ' ' << endl;
-				else
 					cout << ' '; // rien
 			}
 		}

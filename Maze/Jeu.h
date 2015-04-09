@@ -1,4 +1,5 @@
 #pragma once
+#include "Torche.h"
 #include "Boost.h"
 #include "Perso.h"
 #include "Commande.h"
@@ -16,7 +17,6 @@ public :
 		: perso_(LIEU_PERSO_DEFAUT),
 	      boost_(LIEU_BOOST_DEFAUT),
 		  torche_(LIEU_TORCHE_DEFAUT)
-
 	{
 		
 	}
