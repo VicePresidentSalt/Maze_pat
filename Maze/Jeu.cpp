@@ -96,6 +96,7 @@ void Jeu::Executer(const Commande &c)
 		if (Espace::EstValide(perso_.Destination(), maze_))
 		{
 			perso_.Avancer();
+			perso_.IncrementerPasTotal();
 			perso_.ReduirePas();
 			if (torche_.torchePrise() && perso_.GetNbPasTorche() > 0)
 			{

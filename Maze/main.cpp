@@ -19,5 +19,6 @@ int main()
 	if(jeu.GetPersonnage().GetNbPas() == 0)
 		cout << "Vous avez perdu!" << endl;
 	else
-		cout << "Vous avez gagnez!" << endl;
+		cout << "Vous avez gagnez!, il vous a fallu "<<jeu.GetPersonnage().GetNbTotalPas() << " pas pour finir"<< endl;
+		
 }

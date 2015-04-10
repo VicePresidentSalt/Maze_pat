@@ -10,6 +10,7 @@ class Perso
 	Position position_;
 	int nbPas_;
 	int nbPasTorche_;
+	int nbPasTotal_ = 0;
 
 	void SetDir(Orientation o) throw()
 	{
@@ -72,6 +73,15 @@ public:
 	void AjoutNbPasTorche(int ajoutPasTorche)
 	{
 		nbPasTorche_ += ajoutPasTorche;
+	}
+
+	int GetNbTotalPas()
+	{
+		return nbPasTotal_;
+	}
+	void IncrementerPasTotal()
+	{
+		nbPasTotal_++;
 	}
 
 	void Gauche() throw()

@@ -12,6 +12,7 @@ class Jeu
 	Torche torche_;
 	char** maze_;
 	Position LIEU_FIN;
+
 	
 public :
 	Jeu() throw()
