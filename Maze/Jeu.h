@@ -10,18 +10,16 @@ class Jeu
 	Perso perso_;
 	Boost boost_;
 	Torche torche_;
-	vector<pair<int, int>> positionBoost;
-	vector<pair<int, int>> positionTorche;
-	vector<pair<int, int>> positionFin;
-	/*
-	static const Position LIEU_BOOST_DEFAUT, LIEU_PERSO_DEFAUT, LIEU_FIN ,LIEU_TORCHE_DEFAUT;
-	*/
+	char** maze_;
+	Position LIEU_FIN;
+	
 public :
 	Jeu() throw()
 	{
-		
+		maze_ = initMaze();
 	}
 	bool Fini() const throw();
+	char** initMaze();
 	void AfficherEtat();
 	void Executer(const Commande&);
 	Perso GetPersonnage();

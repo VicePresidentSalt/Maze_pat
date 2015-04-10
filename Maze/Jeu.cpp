@@ -5,7 +5,7 @@
 #include <iostream>
 using namespace std;
 
-	char** maze = Espace::initMaze();
+	//char** maze = Espace::initMaze();
 	/*
 	const Position Jeu::LIEU_BOOST_DEFAUT = Position(3, 3);
 	const Position Jeu::LIEU_PERSO_DEFAUT = Position(1, 1);
@@ -14,9 +14,37 @@ using namespace std;
 	*/
 	const Position LIEU_FIN;
 
+char** Jeu::initMaze()
+{
+	char** maze = Espace::initMaze();
+	for (int i = 0; i < 100; i++)
+	{
+		for (int j = 0; j < 100; j++)
+		{
+			const Position pos(j, i);
+			if (maze[j][i] == 'B')
+			{
+				boost_.SetPosition(pos);
+			}
+			else if(maze[j][i] == 'T')
+			{
+				torche_.SetPosition(pos);
+			}
+			else if(maze[j][i] == 'S')
+			{
+				perso_.SetPosition(pos);
+			}
+			else if(maze[j][i] == 'E')
+			{
+				LIEU_FIN = pos;
+			}
+		}
+	}
+	return maze;
+}
 bool Jeu::Fini() const throw()
 {
-	return perso_.GetPosition() == positionFin ; // ?changer pour la position finale du maze
+	return perso_.GetPosition() == LIEU_FIN ; // ?changer pour la position finale du maze
 }
 
 void Jeu::AfficherEtat()
@@ -29,30 +57,18 @@ void Jeu::AfficherEtat()
 		{
 			const Position pos(j, i);
 
-			if(maze[j][i] == '#' && perso_.champVision(pos) )
+			if(maze_[j][i] == '#' && perso_.champVision(pos) )
 			{
 				cout << '#'; // dessine les murs
 			}
-			else if (maze[j][i] == 'B' && perso_.champVision(pos))
+			else if (maze_[j][i] == 'E' && perso_.champVision(pos))
 			{
-				cout << boost_; // dessine boost
-				positionBoost.push_back(make_pair(j, i));
-			}
-			else if (maze[j][i] == 'T' && perso_.champVision(pos))
-			{
-				cout << torche_; // dessine torche
-				positionTorche.push_back(make_pair(j, i));
-			}
-			else if (maze[j][i] == 'E' && perso_.champVision(pos))
-			{
-				LIEU_FIN = positionFin.push_back(make_pair(j, i));
-				cout << 'E'; // dessine exit
+				cout << 'E'; // dessine la sortie
 			}
 			else if (pos == perso_.GetPosition())
 			{
 				cout << perso_; // dessine le perso
 			}
-			/*
 			else if (pos == boost_.GetPosition() && !boost_.estManger() && perso_.champVision(pos) )
 			{
 				cout << boost_; // dessine le boost
@@ -62,10 +78,9 @@ void Jeu::AfficherEtat()
 			{
 				cout << torche_; // dessine la torche
 			}
-			*/
 			else
 			{
-				cout << ' '; // rien
+				cout << ' '; // chemin
 			}
 		}
 	}
@@ -78,7 +93,7 @@ void Jeu::Executer(const Commande &c)
 {
 	if (c == Menu::AVANCER)
 	{
-		if (Espace::EstValide(perso_.Destination(), maze))
+		if (Espace::EstValide(perso_.Destination(), maze_))
 		{
 			perso_.Avancer();
 			perso_.ReduirePas();
@@ -87,15 +102,11 @@ void Jeu::Executer(const Commande &c)
 				perso_.ReduirePasTorche();
 			}
 		}
-		for ( int i = 0; i < positionBoost.size(); i++)
+		if (perso_.GetPosition() == boost_.GetPosition() && !boost_.estManger())
 		{
-			if (perso_.GetPosition() == positionBoost<j,i> && !boost_.estManger())
-			{
-				perso_.AjoutNbPas(boost_.GetAjoutPas());
-				boost_.Mange();
-			}
+			perso_.AjoutNbPas(boost_.GetAjoutPas());
+			boost_.Mange();
 		}
-		
 		if (perso_.GetPosition() == torche_.GetPosition() && !torche_.torchePrise())
 		{
 			perso_.AjoutNbPasTorche(torche_.GetAjoutPasTorche());

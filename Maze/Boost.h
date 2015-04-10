@@ -5,20 +5,25 @@ using namespace std;
 
 class Boost
 {
-	const Position position_;
+	Position position_;
 	static const int ajoutPas_ = 5;
 	bool manger_;
 
 public:
 	Boost() 
 	{
-
+		manger_ = false;
 	}
 
 	Boost(const Position &p) throw()
 		: position_(p)
 	{
 		manger_ = false;
+	}
+
+	void SetPosition(Position pos)
+	{
+		position_ = pos;
 	}
 
 	Position GetPosition() const throw()

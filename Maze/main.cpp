@@ -15,4 +15,9 @@ int main()
 		jeu.Executer(c);
 		jeu.AfficherEtat();
 	}
+
+	if(jeu.GetPersonnage().GetNbPas() == 0)
+		cout << "Vous avez perdu!" << endl;
+	else
+		cout << "Vous avez gagnez!" << endl;
 }

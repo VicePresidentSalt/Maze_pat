@@ -5,21 +5,26 @@ using namespace std;
 
 class Torche
 {
-	const Position position_;
-	static const int ajoutPasTorche_ = 10;
+	Position position_;
+	static const int ajoutPasTorche_ = 12;
 	bool torchePrise_;
 
 
 public:
 	Torche()
 	{ 
-
+		torchePrise_ = false;
 	}
 
 	Torche(const Position &p) throw()
 		: position_(p)
 	{
 		torchePrise_ = false;
+	}
+
+	void SetPosition(Position pos)
+	{
+		position_ = pos;
 	}
 
 	Position GetPosition() const throw()

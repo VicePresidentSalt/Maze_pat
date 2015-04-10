@@ -12,7 +12,6 @@ public:
 		{
 		   maze[i] = new char[100];
 		}
-		// Read maze.txt header
 		ifstream din;
 		din.open("maze.txt");
 		string line;

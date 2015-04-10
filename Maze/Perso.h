@@ -18,13 +18,18 @@ class Perso
 
 public:
 	Perso(const Position &p = Position(), const Orientation o = Nord) throw()
-		: position_(p), direction_(o), nbPas_(2000) , nbPasTorche_(0)
+		: position_(p), direction_(o), nbPas_(50) , nbPasTorche_(0)
 	{
 	}
 
 	Orientation GetDir() const throw()
 	{
 		return direction_;
+	}
+
+	void SetPosition(Position pos)
+	{
+		position_ = pos;
 	}
 
 	bool champVision(Position pos)
