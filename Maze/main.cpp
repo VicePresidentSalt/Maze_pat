@@ -1,7 +1,6 @@
 #include "Commande.h"
 #include "Jeu.h"
 #include "Menu.h"
-#include "Maze.h"
 
 int main()
 {

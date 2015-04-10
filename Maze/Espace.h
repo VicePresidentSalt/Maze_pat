@@ -5,7 +5,7 @@ using namespace std;
 class Espace
 {
 public:
-	static char** initMaze()
+	static char** readMaze()
 	{
 		char** maze = new char*[100];
 		for (int i = 0; i < 100; ++i)

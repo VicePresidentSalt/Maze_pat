@@ -5,18 +5,10 @@
 #include <iostream>
 using namespace std;
 
-	//char** maze = Espace::initMaze();
-	/*
-	const Position Jeu::LIEU_BOOST_DEFAUT = Position(3, 3);
-	const Position Jeu::LIEU_PERSO_DEFAUT = Position(1, 1);
-	const Position Jeu::LIEU_FIN = Position(16,1);
-	const Position Jeu::LIEU_TORCHE_DEFAUT = Position(3, 2);
-	*/
-	const Position LIEU_FIN;
 
 char** Jeu::initMaze()
 {
-	char** maze = Espace::initMaze();
+	char** maze = Espace::readMaze();
 	for (int i = 0; i < 100; i++)
 	{
 		for (int j = 0; j < 100; j++)
