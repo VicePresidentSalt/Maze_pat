@@ -10,7 +10,7 @@ class Perso
 	Position position_;
 	int nbPas_;
 	int nbPasTorche_;
-	int nbPasTotal_ = 0;
+	int nbPasTotal_;
 
 	void SetDir(Orientation o) throw()
 	{
@@ -19,7 +19,7 @@ class Perso
 
 public:
 	Perso(const Position &p = Position(), const Orientation o = Nord) throw()
-		: position_(p), direction_(o), nbPas_(50) , nbPasTorche_(0)
+		: position_(p), direction_(o), nbPas_(50) , nbPasTorche_(0) , nbPasTotal_(0)
 	{
 	}
 
